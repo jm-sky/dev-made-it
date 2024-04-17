@@ -1,10 +1,10 @@
 <template>
   <section class="resume-section grid place-items-center w-screen h-screen bg-primary-800">
     <div class="resume">
-      <img src="/assets/bible-1.jpg" alt="m-sky Bible">
-      <img src="/assets/bible-2.jpg" alt="LiteMES">
-      <img src="/assets/bible-3.jpg" alt="Portal Klienta">
-      <img src="/assets/bible-4.jpg" alt="">
+      <a title="m-sky Bible"><img src="/assets/bible-1.jpg" alt="m-sky Bible"></a>
+      <a title="LiteMES"><img src="/assets/bible-2.jpg" alt="LiteMES"></a>
+      <a title="Portal Klienta"><img src="/assets/bible-3.jpg" alt="Portal Klienta"></a>
+      <a title="DevMadeIT"><img src="/assets/bible-4.jpg" alt="DevMadeIT"></a>
     </div>
   </section>
 </template>
@@ -13,6 +13,8 @@
 .resume {
   --gap: 0.5rem;
   --image-size: calc(150px - .5rem);
+  --radius: 1rem;
+  position: relative;
   width: fit-content;
   margin-inline: auto;
   display: grid;
@@ -20,18 +22,17 @@
   grid-template-rows: repeat(3, var(--image-size));
   gap: var(--gap);
 
-  &:hover img {
+  &:hover a img {
     filter: grayscale(var(--filter-grayscale));
   }
 
-  img {
+  a {
     --filter-grayscale: 1;
     --filter-blur: 0.25rem;
+    position: relative;
     width: calc(var(--image-size) * 2);
-    aspect-ratio: 1;
-    object-fit: cover;
     grid-column: span 2;
-    border-radius: 1rem;
+    border-radius: var(--radius);
     clip-path: path('M 115.2 28.8 C 144 0 144 0 172.8 28.8 C 182.3998 38.3998 192.0002 48.0002 259.2 115.2 C 288 144 288 144 259.2 172.8 C 230.4 201.6 201.6 230.4 172.8 259.2 C 144 288 144 288 115.2 259.2 C 86.4 230.4 57.6 201.6 28.8 172.8 C 0 144 0 144 28.8 115.2');
     transition: transform 500ms ease-in-out,
               clip-path 500ms ease,
@@ -55,7 +56,49 @@
     &:not(:hover) {
       animation: zIndexHack 500ms;
     }
+
+    img {
+      aspect-ratio: 1;
+      object-fit: cover;
+      width: calc(var(--image-size) * 2);
+      border-radius: var(--radius);
+    }
+
+    &:hover::after {
+      content: attr(title);
+      position: absolute;
+      top: 100%;
+      transform: translateY(-50%);
+      left: 0;
+      width: 100%;
+      background-color: hsl(var(--clr-primary-hsl), .5);
+      padding: .5rem 0;
+      text-align: center;
+      animation: fadeIn 1s;
+    }
   }
 
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: calc(-1 * var(--image-size) - 1.5rem);
+    left: 50%;
+    width: 30%;
+    height: 1rem;
+    transform: translateX(-50%);
+    background-color: hsl(0 0 0 / .75);
+    border-radius: 50%;
+    filter: blur(.75rem);
+    transition: width 500ms ease-in-out;
+  }
+
+  &:has(a:hover)::before {
+    width: 55%;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 100; }
 }
 </style>
