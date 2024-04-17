@@ -1,36 +1,91 @@
+<script setup lang="ts">
+interface Project {
+  id: string
+  name: string
+  description: string
+  tags?: string[]
+}
+
+const projects: Project[] = [
+  {
+    id: 'Bible',
+    name: 'mSky Bible',
+    description: 'Progressive Web App Bible reader',
+    tags: ['JavaScript', 'VueJS', 'Quasar']
+  },
+  {
+    id: 'LiteMes',
+    name: 'LiteMes',
+    description: 'Production registration tool with web app user interface integrated with ERP system.',
+    tags: ['PHP, JavaScript, jQuery, SQL Server'],
+  },
+  {
+    id: 'PortalKlienta',
+    name: 'Portal Klienta',
+    description: 'Customer Portal application for office-client communication, issuing invoices etc.',
+  },
+  {
+    id: 'DevMadeIT',
+    name: 'Dev Made IT',
+    description: 'This home page.',
+  },
+];
+</script>
+
 <template>
-  <section class="resume-section relative grid place-items-center w-screen h-screen bg-primary-800">
+  <section class="resume-section relative grid place-items-center w-screen min-h-screen bg-primary-800">
     <div class="resume">
-      <a title="m-sky Bible"><img src="/assets/bible-1.jpg" alt="m-sky Bible"></a>
-      <a title="LiteMES"><img src="/assets/bible-2.jpg" alt="LiteMES"></a>
-      <a title="Portal Klienta"><img src="/assets/bible-3.jpg" alt="Portal Klienta"></a>
-      <a title="DevMadeIT"><img src="/assets/bible-4.jpg" alt="DevMadeIT"></a>
+      <a href="#Bible" title="m-sky Bible"><img src="/assets/bible-1.jpg" alt="m-sky Bible"></a>
+      <a href="#LiteMes" title="LiteMES"><img src="/assets/bible-2.jpg" alt="LiteMES"></a>
+      <a href="#PortalKlienta" title="Portal Klienta"><img src="/assets/bible-3.jpg" alt="Portal Klienta"></a>
+      <a href="#DevMadeIT" title="DevMadeIT"><img src="/assets/bible-4.jpg" alt="DevMadeIT"></a>
     </div>
+
+    <div class="projects my-10 grid gap-5">
+      <div
+        v-for="project in projects"
+        :key="project.id"
+        class="project-card grid gap-2 px-5 p-3 rounded-xl border border-primary-800 shadow-lg bg-primary-950/30 transition-transform duration-500 hover:scale-105"
+      >
+        <h3 :id="project.id" class="font-bold text-lg">{{ project.name }}</h3>
+        <p>{{ project.description }}</p>
+        <div class="opacity-80 font-mono text-sm">{{ project.tags?.join(', ') }}</div>
+      </div>
+    </div>
+
   </section>
 </template>
 
 <style>
-.resume-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: .5;
-  background: linear-gradient(to top, var(--clr-primary), #fff, var(--clr-primary), transparent);
+.resume-section {
+  isolation: isolate;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: .5;
+    background: linear-gradient(to bottom, transparent, #fff 30rem, var(--clr-primary), transparent);
+    z-index: -1;
+  }
 }
 
 .resume {
   --gap: 0.5rem;
   --image-size: calc(150px - .5rem);
   --radius: 1rem;
+  --columns: 4;
+  --rows: 3;
   position: relative;
+  height: calc(var(--image-size) * var(--columns) + 4rem);
   width: fit-content;
   margin-inline: auto;
   display: grid;
-  grid-template-columns: repeat(4, var(--image-size));
-  grid-template-rows: repeat(3, var(--image-size));
+  grid-template-columns: repeat(var(--columns), var(--image-size));
+  grid-template-rows: repeat(var(--rows), var(--image-size));
   gap: var(--gap);
 
   &:hover a img {
@@ -40,6 +95,7 @@
   a {
     --filter-grayscale: 1;
     --filter-blur: 0.25rem;
+    cursor: pointer;
     position: relative;
     width: calc(var(--image-size) * 2);
     grid-column: span 2;
@@ -94,15 +150,15 @@
     &:hover::after {
       opacity: 1;
       transform: translateY(-50%) scaleY(1);
-      transition: opacity 500ms 300ms ease-in-out,
-          transform 300ms 300ms ease-in-out;
+      transition: opacity 500ms 100ms ease-in-out,
+          transform 300ms 100ms ease-in-out;
     }
   }
 
   &::before {
     content: '';
     position: absolute;
-    bottom: calc(-1 * var(--image-size) - 1.5rem);
+    bottom: 0;
     left: 50%;
     width: 20%;
     height: .75rem;
@@ -115,6 +171,17 @@
 
   &:has(a:nth-of-type(4):hover)::before {
     width: 55%;
+  }
+}
+
+.project-card {
+  isolation: isolate;
+  position: relative;
+
+  &::before {
+    content: '';
+    @apply absolute w-full h-full rounded-xl;
+    background: radial-gradient(ellipse at top, #eff3 0%, transparent 50%);
   }
 }
 </style>
