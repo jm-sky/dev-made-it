@@ -1,5 +1,5 @@
 <template>
-  <section class="resume-section grid place-items-center w-screen h-screen bg-primary-800">
+  <section class="resume-section relative grid place-items-center w-screen h-screen bg-primary-800">
     <div class="resume">
       <a title="m-sky Bible"><img src="/assets/bible-1.jpg" alt="m-sky Bible"></a>
       <a title="LiteMES"><img src="/assets/bible-2.jpg" alt="LiteMES"></a>
@@ -10,6 +10,17 @@
 </template>
 
 <style>
+.resume-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: .5;
+  background: linear-gradient(to top, var(--clr-primary), #fff, var(--clr-primary), transparent);
+}
+
 .resume {
   --gap: 0.5rem;
   --image-size: calc(150px - .5rem);
@@ -64,17 +75,27 @@
       border-radius: var(--radius);
     }
 
-    &:hover::after {
+    &::after {
       content: attr(title);
       position: absolute;
       top: 100%;
-      transform: translateY(-50%);
+      transform: translateY(-50%) scaleY(0);
       left: 0;
       width: 100%;
       background-color: hsl(var(--clr-primary-hsl), .5);
       padding: .5rem 0;
       text-align: center;
-      animation: fadeIn 1s;
+      text-shadow: #000a 1px 1px 3px;
+      opacity: 0;
+      transition: opacity 500ms ease-in-out,
+              transform 300ms ease-in-out;
+    }
+
+    &:hover::after {
+      opacity: 1;
+      transform: translateY(-50%) scaleY(1);
+      transition: opacity 500ms 300ms ease-in-out,
+          transform 300ms 300ms ease-in-out;
     }
   }
 
@@ -83,22 +104,17 @@
     position: absolute;
     bottom: calc(-1 * var(--image-size) - 1.5rem);
     left: 50%;
-    width: 30%;
-    height: 1rem;
+    width: 20%;
+    height: .75rem;
     transform: translateX(-50%);
     background-color: hsl(0 0 0 / .75);
     border-radius: 50%;
-    filter: blur(.75rem);
+    filter: blur(.7rem);
     transition: width 500ms ease-in-out;
   }
 
-  &:has(a:hover)::before {
+  &:has(a:nth-of-type(4):hover)::before {
     width: 55%;
   }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 100; }
 }
 </style>
