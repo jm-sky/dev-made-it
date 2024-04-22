@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import ResumeImageNavigation from './partials/ResumeImageNavigation.vue';
-import ResumeProjects from './partials/ResumeProjects.vue';
+import ResumeImageNavigation from '@/components/partials/ResumeImageNavigation.vue';
+import ResumeProjects from '@/components/partials/ResumeProjects.vue';
 </script>
 
 <template>

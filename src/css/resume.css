@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+  * {
+    font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+  }
+}
+
+:root {
+  --clr-primary-hsl: 199, 89%, 48%;
+  --clr-primary: hsl(var(--clr-primary-hsl));
+  
+  --primary-color: var(--clr-primary);
+  --bg-color: #081b29;
+  --text-color: #333;
+  --second-text-color: #555;
+  --white-color: #fff;
+  --cover-color: linear-gradient(45deg, var(--primary-color), #006e9a);
+  --pages-color: linear-gradient(90deg, #fff, #ddd);
+  --border: 0.125rem solid var(--primary-color);
+  --box-shadow: 0 0 .6rem rgba(0, 0, 0, .2);
+}
+
+body {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
