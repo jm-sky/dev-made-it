@@ -6,6 +6,8 @@ import ExperiencePage from '@/pages/resume/ExperiencePage.vue'
 import CoursesPage from '@/pages/resume/CoursesPage.vue'
 import ProjectsPage from '@/pages/resume/ProjectsPage.vue'
 import SkillsPage from '@/pages/resume/SkillsPage.vue'
+import LatestProjectPage from '@/pages/resume/LatestProjectPage.vue';
+import ContactMePage from '@/pages/resume/ContactMePage.vue';
 
 const resume = {
   fullName: 'Jan Madeyski',
@@ -44,19 +46,29 @@ const onPageTurn = (dir: number) => {
       <div class="book-page page-left">
         <ProfilePage :resume />
       </div>
+
       <div class="book-page page-right" :class="{ turn: currentPage > 1 }">
         <ExperiencePage :page="1" :resume @turn="onPageTurn" />
         <CoursesPage :page="2" :resume @turn="onPageTurn" />
       </div>
 
-      <div v-if="currentPage >= 2" class="book-page page-right" :class="{ turn: currentPage > 4 }">
-        <ProjectsPage v-if="currentPage >= 2" :page="3" :resume @turn="onPageTurn" />
-        <SkillsPage v-if="currentPage >= 3" :page="4" :resume @turn="onPageTurn" />
+      <div v-if="currentPage >= 2" class="book-page page-right" :class="{ turn: currentPage > 3 }">
+        <ProjectsPage :currentPage :page="3" :resume @turn="onPageTurn" />
+        <SkillsPage :currentPage :page="4" :resume @turn="onPageTurn" />
+      </div>
+
+      <div v-if="currentPage >= 4" class="book-page page-right" :class="{ turn: currentPage > 5 }">
+        <LatestProjectPage :currentPage :page="5" :resume @turn="onPageTurn" />
+        <ContactMePage :currentPage :page="6" :resume @turn="onPageTurn" />
+      </div>
+
+      <div v-if="currentPage >= 5" class="book-page page-right">
+        <div class="h-full page-front"></div>
       </div>
 
     </div>
 
-    <div class="rounded absolute bottom-1 right-1 text-sm bg-black shadow text-white px-2 py-1">{{ currentPage }}</div>
+    <div class="rounded absolute bottom-1 left-1/2 -translate-x-1/2 bg-black/50 text-xs text-white px-2 py-0.5">{{ currentPage }}</div>
   </div>
 </template>
 
@@ -111,6 +123,7 @@ const onPageTurn = (dir: number) => {
       @apply absolute right-0;
       transform-style: preserve-3d;
       transform-origin: left;
+      transition: transform 1s cubic-bezier(.645, 0.45, .355, 1);
 
       &.turn {
         transform: rotateY(-180deg);

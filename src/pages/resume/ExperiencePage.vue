@@ -68,7 +68,6 @@ const experience = [
 
 <style>
 .experience-page {
-
   & .worked-box {
     @apply relative border-l-2 border-primary-500;
   }
