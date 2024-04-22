@@ -9,7 +9,45 @@ import SkillsPage from '@/pages/resume/SkillsPage.vue'
 import LatestProjectPage from '@/pages/resume/LatestProjectPage.vue';
 import ContactMePage from '@/pages/resume/ContactMePage.vue';
 
-const resume = {
+interface SocialLink {
+  icon: string
+  url: string
+}
+
+interface Course {
+  title: string
+  date: string
+}
+
+interface Project {
+  title: string
+  period: string
+  company: string
+  description: string
+}
+
+interface Skill {
+  name: string
+  icon: string
+  level?: number
+}
+
+interface SkillBranch {
+  title: string
+  skills: Skill[]
+}
+
+export interface Resume {
+  fullName: string
+  caption: string
+  description: string
+  socialLinks: SocialLink[]
+  courses: Course[]
+  projects: Project[]
+  skills: Record<string, SkillBranch>
+}
+
+const resume: Resume = {
   fullName: 'Jan Madeyski',
   caption: "Full Stack Developer",
   description: 'Full Stack Developer with over 10 years of experience. Built apps for business clients, worked in small (3-person) and medium (6-people) teams.',
@@ -23,6 +61,109 @@ const resume = {
       url: 'https://www.linkedin.com/in/jan-madeyski',
     },
   ],
+  courses: [
+    {
+      title: 'Tuning and Optimizing SQL Databases',
+      date: '2019',
+    },
+    {
+      title: 'Attacking & protecting web applications',
+      date: '2018',
+    },
+    {
+      title: 'PRINCE 2 Foundation',
+      date: '2019',
+    },
+    {
+      title: 'Interpersonal Training',
+      date: '2009',
+    },
+  ],
+  projects: [
+    {
+      title: 'Portal Klienta',
+      period: '2019 - 2023',
+      company: 'TaxOrder',
+      description: 'Customer Portal application for invoice management & office-client communication. Written in VueJS + Laravel + SQL Server 2016.',
+    },
+    {
+      title: 'LiteMES',
+      period: '2016 - 2017',
+      company: 'Kancelaria Skłodowscy',
+      description: 'Production registration tool with web application user interface integrated with Softlab ERP. Aimed to be used with tablets and RFID card readers. Contains MES module, editable auto-generated data grid, status module with stats, service module, gate-keeper module.',
+    },
+    {
+      title: 'WMS',
+      period: '2014 - 2015',
+      company: 'Kancelaria Skłodowscy',
+      description: 'Original WMS module for Softlab ERP designed to be use on mobile devices with barcode scanners, integrated with logistic & sales modules.',
+    },
+  ],
+  skills: {
+    frontEnd: {
+      title: 'Font-end',
+      skills: [
+        {
+          name: 'HTML',
+          icon: 'fa-brands fa-html5',
+          level: 4,
+        },
+        {
+          name: 'JavaScript',
+          icon: 'fa-brands fa-js',
+          level: 4,
+        },
+        {
+          name: 'VueJs',
+          icon: 'fa-brands fa-vuejs',
+          level: 4,
+        },
+        {
+          name: 'CSS',
+          icon: 'fa-brands fa-css3-alt',
+          level: 3,
+        },
+        {
+          name: 'Tailwind',
+          icon: 'fa-brands fa-css3-alt',
+          level: 3,
+        },
+        {
+          name: 'Bootstrap',
+          icon: 'fa-brands fa-bootstrap',
+          level: 3,
+        },
+      ]
+    },
+    backend: {
+      title: 'Back-end',
+      skills: [
+        {
+          name: 'PHP',
+          icon: 'fa-brands fa-php',
+          level: 4,
+        },
+        {
+          name: 'SQL',
+          icon: 'fa-solid fa-database',
+          level: 5,
+        },
+      ],
+    },
+    tools: {
+      title: 'Tools',
+      skills: [
+        {
+          name: 'Git',
+          icon: 'fa-brands fa-git-alt',
+        },
+        {
+          name: 'Guitar',
+          icon: 'fa-solid fa-guitar',
+        },
+      ],
+    },
+  },
 }
 
 export interface Turns {

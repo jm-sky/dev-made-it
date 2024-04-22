@@ -1,93 +1,18 @@
 <script setup lang="ts">
+import { Resume } from '../ResumePage.vue';
 import PageTemplate from './PageTemplate.vue';
 
 defineProps<{
-  resume: any
+  resume: Resume
 }>()
 
-interface Skill {
-  name: string
-  icon: string
-  level?: number
-}
-
-interface SkillBranch {
-  title: string
-  skills: Skill[]
-}
-
-const branches: Record<string, SkillBranch> = {
-  frontEnd: {
-    title: 'Font-end',
-    skills: [
-      {
-        name: 'HTML',
-        icon: 'fa-brands fa-html5',
-        level: 4,
-      },
-      {
-        name: 'JavaScript',
-        icon: 'fa-brands fa-js',
-        level: 4,
-      },
-      {
-        name: 'VueJs',
-        icon: 'fa-brands fa-vuejs',
-        level: 4,
-      },
-      {
-        name: 'CSS',
-        icon: 'fa-brands fa-css3-alt',
-        level: 3,
-      },
-      {
-        name: 'Tailwind',
-        icon: 'fa-brands fa-css3-alt',
-        level: 3,
-      },
-      {
-        name: 'Bootstrap',
-        icon: 'fa-brands fa-bootstrap',
-        level: 3,
-      },
-    ]
-  },
-  backend: {
-    title: 'Back-end',
-    skills: [
-      {
-        name: 'PHP',
-        icon: 'fa-brands fa-php',
-        level: 4,
-      },
-      {
-        name: 'SQL',
-        icon: 'fa-solid fa-database',
-        level: 5,
-      },
-    ],
-  },
-  tools: {
-    title: 'Tools',
-    skills: [
-      {
-        name: 'Git',
-        icon: 'fa-brands fa-git-alt',
-      },
-      {
-        name: 'Guitar',
-        icon: 'fa-solid fa-guitar',
-      },
-    ],
-  },
-}
 </script>
 
 <template>
   <PageTemplate class="skills-page page-back">
     <h2 class="title mb-4 font-bold text-3xl text-center">Skills</h2>
     <div class="flex flex-col gap-5">
-      <div v-for="(branch, index) in branches" :key="index" class="flex flex-col gap-2">
+      <div v-for="(branch, index) in resume.skills" :key="index" class="flex flex-col gap-2">
         <h4 class="font-bold text-lg">
           {{ branch.title }}
         </h4>
