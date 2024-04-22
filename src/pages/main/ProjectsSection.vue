@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import ResumeImageNavigation from '@/components/partials/ResumeImageNavigation.vue';
-import ResumeProjects from '@/components/partials/ResumeProjects.vue';
+import ProjectsImageNavigation from '@/pages/main/projects/ProjectsImageNavigation.vue';
+import ProjectsList from '@/pages/main/projects/ProjectsList.vue';
 </script>
 
 <template>
   <section id="projects-section" class="projects-section relative grid place-items-center w-screen min-h-screen bg-primary-800">
-    <ResumeImageNavigation />
-    <ResumeProjects />
+    <ProjectsImageNavigation />
+    <ProjectsList />
   </section>
 </template>
 

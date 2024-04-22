@@ -38,7 +38,7 @@ const projects: Project[] = [
     <div
       v-for="project in projects"
       :key="project.id"
-      class="project-card grid gap-2 px-5 p-3 rounded-xl border border-primary-800 shadow-lg bg-primary-950/30 transition-transform duration-500 hover:scale-105"
+      class="project-card grid gap-2 px-5 p-3 rounded-xl border text-white border-primary-800 shadow-lg bg-primary-950/30 transition-transform duration-500 hover:scale-105"
     >
       <h3 :id="project.id" class="font-bold text-lg">{{ project.name }}</h3>
       <p>{{ project.description }}</p>

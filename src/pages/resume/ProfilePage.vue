@@ -1,11 +1,14 @@
 <script setup lang="ts">
+import PageTemplate from './PageTemplate.vue';
+
 defineProps<{
   resume: any
+  page?: number
 }>()
 </script>
 
 <template>
-  <div class="profile-page h-full flex flex-col justify-center items-center gap-y-3">
+  <PageTemplate class="profile-page flex flex-col justify-center items-center gap-y-3">
     <img src="/assets/profile.jpg" alt="" class="rounded-full w-40 border-4 border-primary-500">
     <h1 class="text-4xl font-bold">{{ resume.fullName }}</h1>
     <h3 class="text-lg font-bold text-primary-500">{{ resume.caption }}</h3>
@@ -22,7 +25,8 @@ defineProps<{
       <a href="#" class="border-primary-500 text-white px-5 py-2 bg-primary-500 hover:bg-white hover:text-primary-500">Download CV</a>
       <a href="#" class="border-primary-500 text-primary-500 px-5 py-2 bg-white hover:bg-primary-500 hover:text-white">Contact Me</a>
     </div>
-  </div>
+
+  </PageTemplate>
 </template>
 
 <style>

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import PageTemplate from './PageTemplate.vue';
+
 defineProps<{
   resume: any
 }>()
@@ -42,9 +44,8 @@ const experience = [
 </script>
 
 <template>
-  <!-- Experience -->
-  <div class="experience-page page-front">
-    <h2 class="title mb-2 font-bold text-3xl text-center">Experience</h2>
+  <PageTemplate class="experience-page page-front">
+    <h2 class="title mb-4 font-bold text-3xl text-center">Experience</h2>
     <div class="worked-box flex flex-col gap-5">
       <div v-for="(job, index) in experience" :key="index" class="worked-content flex flex-col gap-2">
         <span class="year text-xs text-primary-500 uppercase">
@@ -62,15 +63,7 @@ const experience = [
         </div>
       </div>
     </div>
-  </div>
-
-  <!-- Education -->
-  <div class="page-back">
-    <h2 class="title my-2 font-bold text-2xl">Education</h2>
-    <div class="flex flex-col gap-4">
-      <h3 class="font-bold text-lg">University of Warsaw</h3>
-    </div>
-  </div>
+  </PageTemplate>
 </template>
 
 <style>

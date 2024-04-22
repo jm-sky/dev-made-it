@@ -1,5 +1,5 @@
 <template>
-  <section id="resume-section" class="resume-section min-w-screen min-h-screen bg-neutral-500 py-8">
+  <section id="cv-section" class="cv-section min-w-screen min-h-screen bg-neutral-500 py-8 text-white">
   
     <div class="container shadow-lg mx-auto w-full max-w-5xl grid grid-cols-[1fr_2fr] min-h-96 bg-neutral-50">
       <div class="left-side bg-gradient-to-b from-primary-950 to-primary-800 p-8">

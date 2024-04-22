@@ -1,7 +1,11 @@
 <script setup lang="ts">
+import { ref } from 'vue';
 import '@/css/resume.css'
 import ProfilePage from '@/pages/resume/ProfilePage.vue'
 import ExperiencePage from '@/pages/resume/ExperiencePage.vue'
+import CoursesPage from '@/pages/resume/CoursesPage.vue'
+import ProjectsPage from '@/pages/resume/ProjectsPage.vue'
+import SkillsPage from '@/pages/resume/SkillsPage.vue'
 
 const resume = {
   fullName: 'Jan Madeyski',
@@ -18,6 +22,16 @@ const resume = {
     },
   ],
 }
+
+export interface Turns {
+  turn1: boolean
+}
+
+const currentPage = ref<number>(0)
+
+const onPageTurn = (dir: number) => {
+  currentPage.value += dir
+} 
 </script>
 
 <template>
@@ -26,13 +40,23 @@ const resume = {
     <div class="cover cover-right turn"></div>
 
     <div class="book">
+      <!-- Page 1 & 2 -->
       <div class="book-page page-left">
         <ProfilePage :resume />
       </div>
-      <div class="book-page page-right" id="turn-1">
-        <ExperiencePage :resume />
+      <div class="book-page page-right" :class="{ turn: currentPage > 1 }">
+        <ExperiencePage :page="1" :resume @turn="onPageTurn" />
+        <CoursesPage :page="2" :resume @turn="onPageTurn" />
       </div>
+
+      <div v-if="currentPage >= 2" class="book-page page-right" :class="{ turn: currentPage > 4 }">
+        <ProjectsPage v-if="currentPage >= 2" :page="3" :resume @turn="onPageTurn" />
+        <SkillsPage v-if="currentPage >= 3" :page="4" :resume @turn="onPageTurn" />
+      </div>
+
     </div>
+
+    <div class="rounded absolute bottom-1 right-1 text-sm bg-black shadow text-white px-2 py-1">{{ currentPage }}</div>
   </div>
 </template>
 
@@ -86,6 +110,11 @@ const resume = {
     &.page-right {
       @apply absolute right-0;
       transform-style: preserve-3d;
+      transform-origin: left;
+
+      &.turn {
+        transform: rotateY(-180deg);
+      }
     }
   }
 }
