@@ -44,7 +44,7 @@ const onPageTurn = (dir: number) => {
     <div class="book">
       <!-- Page 1 & 2 -->
       <div class="book-page page-left">
-        <ProfilePage :resume />
+        <ProfilePage :resume v-model:currentPage="currentPage" />
       </div>
 
       <div class="book-page page-right" :class="{ turn: currentPage > 1 }">
@@ -67,8 +67,6 @@ const onPageTurn = (dir: number) => {
       </div>
 
     </div>
-
-    <div class="rounded absolute bottom-1 left-1/2 -translate-x-1/2 bg-black/50 text-xs text-white px-2 py-0.5">{{ currentPage }}</div>
   </div>
 </template>
 

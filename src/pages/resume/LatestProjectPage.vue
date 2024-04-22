@@ -18,17 +18,25 @@ defineProps<{
         />
       </div>
       <div class="flex flex-row items-center justify-between gap-2">
-        <h4 class="text-lg font-bold">Project name</h4>
+        <h4 class="text-lg font-bold">mSky Bible</h4>
         <a href="#" class="text-sm text-primary-500 font-semibold hover:font-primary-600">
           Preview
           <i class="fa-solid fa-external-link scale-75" />
         </a>
       </div>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates praesentium reprehenderit molestiae cumque! Voluptate nisi quae dolore tempora in inventore, doloremque, cumque, tempore reiciendis corporis expedita odit iste dolor minus?
+        Simple Bible reader progressive web application. You can zoom in/out & copy verses with book annotations.
       </p>
       <div class="mt-4 flex flex-row justify-center gap-4">
-        <a href="#" class="px-5 py-3 bg-primary-500 text-white rounded text-sm font-semibold transition-all duration-500 border border-primary-500 hover:text-primary-500 hover:bg-white">Source code</a>
+        <a
+          href="https://github.com/jm-sky/bible"
+          class="px-5 py-3 bg-primary-500 text-white rounded text-sm font-semibold transition-all duration-500 border border-primary-500 hover:text-primary-500 hover:bg-white"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fa-brands fa-github mr-1"></i>
+          Source code
+        </a>
       </div>
     </div>
   </PageTemplate>

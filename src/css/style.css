@@ -6,3 +6,7 @@
   --clr-primary-hsl: 199, 89%, 48%;
   --clr-primary: hsl(var(--clr-primary-hsl));
 }
+
+body {
+  overflow-x: hidden;
+}

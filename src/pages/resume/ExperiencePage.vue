@@ -52,11 +52,14 @@ const experience = [
           <i class="fa-solid fa-calendar mr-1"></i>
           {{ job.period }}
         </span>
-        <h3 class="font-bold text-lg leading-4">{{ job.position }}</h3>
+        <div class="flex flex-row items-center justify-between gap-4">
+          <h3 class="font-bold text-lg leading-4">{{ job.position }}</h3>
+          <div class="text-sm text-gray-500 font-light">{{ job.company }}</div>
+        </div>
         <div v-if="job.description?.length" class="flex flex-col gap-2 text-sm">
           <template v-for="paragraph in job.description">
             <h5 class="font-bold">{{ paragraph.title }}</h5>
-            <ul class="list-disc ml-4">
+            <ul class="list-disc ml-4 space-y-1">
               <li v-for="(content, jndex) in paragraph.content" :key="jndex">{{ content }}</li>
             </ul>
           </template>

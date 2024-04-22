@@ -3,8 +3,9 @@ import PageTemplate from './PageTemplate.vue';
 
 defineProps<{
   resume: any
-  page?: number
 }>()
+
+const currentPage = defineModel<number>('currentPage', { required: true })
 </script>
 
 <template>
@@ -22,8 +23,12 @@ defineProps<{
     <p class="text-justify">{{ resume.description }}</p>
 
     <div class="buttons flex flex-row gap-4 mt-4">
-      <a href="#" class="border-primary-500 text-white px-5 py-2 bg-primary-500 hover:bg-white hover:text-primary-500">Download CV</a>
-      <a href="#" class="border-primary-500 text-primary-500 px-5 py-2 bg-white hover:bg-primary-500 hover:text-white">Contact Me</a>
+      <a href="/assets/Madeyski Jan - CV.pdf" class="border-primary-500 text-white px-5 py-2 bg-primary-500 hover:bg-white hover:text-primary-500">
+        Download CV
+      </a>
+      <a class="cursor-pointer border-primary-500 text-primary-500 px-5 py-2 bg-white hover:bg-primary-500 hover:text-white" @click="currentPage = 6">
+        Contact Me
+      </a>
     </div>
 
   </PageTemplate>
