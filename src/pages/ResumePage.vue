@@ -61,16 +61,6 @@ const resume: Resume = {
         }
       ],
     },
-    {
-      position: 'Web App Developer',
-      period: '2008-2014',
-      company: 'Self employment',
-      description: [
-        {
-          content: ['Some minor free lance projects'],
-        },
-      ],
-    }
   ],
   languages: [
     {
