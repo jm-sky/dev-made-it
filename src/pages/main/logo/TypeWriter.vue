@@ -1,5 +1,5 @@
 <template>
-  <div class="typewriter absolute top-10 left-1/2 -translate-x-1/2">
+  <div class="typewriter absolute top-10 left-1/2 -translate-x-1/2 whitespace-nowrap">
     <h1 class="text-white/80 text-lg font-mono">Hello, my name is John.</h1>
   </div>
 </template>

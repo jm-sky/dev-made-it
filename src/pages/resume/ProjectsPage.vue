@@ -1,13 +1,14 @@
 <script setup lang="ts">
-import PageTemplate from './PageTemplate.vue';
+import { Resume } from '@/types/resume.type';
+import PageLayout from '@/pages/resume/layouts/PageLayout.vue';
 
 defineProps<{
-  resume: any
+  resume: Resume
 }>()
 </script>
 
 <template>
-  <PageTemplate class="projects-page page-front">
+  <PageLayout class="projects-page">
     <h2 class="title mb-4 font-bold text-3xl text-center">Projects</h2>
     <div class="worked-box flex flex-col gap-5">
       <div v-for="(project, index) in resume.projects" :key="index" class="worked-content flex flex-col gap-2">
@@ -24,5 +25,5 @@ defineProps<{
         </div>
       </div>
     </div>
-  </PageTemplate>
+  </PageLayout>
 </template>

@@ -1,51 +1,16 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import '@/css/resume.css'
+import { Resume } from '@/types/resume.type';
+import OutlineButton from '@/components/buttons/OutlineButton.vue';
 import ProfilePage from '@/pages/resume/ProfilePage.vue'
+import SheetLayout from '@/pages/resume/layouts/SheetLayout.vue'
 import ExperiencePage from '@/pages/resume/ExperiencePage.vue'
 import CoursesPage from '@/pages/resume/CoursesPage.vue'
 import ProjectsPage from '@/pages/resume/ProjectsPage.vue'
 import SkillsPage from '@/pages/resume/SkillsPage.vue'
 import LatestProjectPage from '@/pages/resume/LatestProjectPage.vue';
 import ContactMePage from '@/pages/resume/ContactMePage.vue';
-
-interface SocialLink {
-  icon: string
-  url: string
-}
-
-interface Course {
-  title: string
-  date: string
-}
-
-interface Project {
-  title: string
-  period: string
-  company: string
-  description: string
-}
-
-interface Skill {
-  name: string
-  icon: string
-  level?: number
-}
-
-interface SkillBranch {
-  title: string
-  skills: Skill[]
-}
-
-export interface Resume {
-  fullName: string
-  caption: string
-  description: string
-  socialLinks: SocialLink[]
-  courses: Course[]
-  projects: Project[]
-  skills: Record<string, SkillBranch>
-}
 
 const resume: Resume = {
   fullName: 'Jan Madeyski',
@@ -61,22 +26,90 @@ const resume: Resume = {
       url: 'https://www.linkedin.com/in/jan-madeyski',
     },
   ],
+  experience: [
+    {
+      position: 'Full Stack Developer',
+      period: '2019 - present',
+      company: 'TaxOrder',
+      description: [
+        {
+          title: 'Roles and Responsibilities:',
+          content: [
+            'Creating company’s flagship web application as a tech-lead (PHP, VueJS, SQL Server)',
+            'Creating some API services (i.e. KSeF) (PHP, Laravel, XML, JSON)',
+            'Development and construction of CI/CD (GitLab, Linux)',
+            'Task planning, code review, debugging, writing tests',
+          ],
+        },
+        {
+          title: 'Technologies:',
+          content: ['PHP 8, Laravel, PHPUnit, TypeScript, JavaScript, VueJS, Microsoft SQL Server, PostgreSQL, Docker, GitLab, GitHub, XML, JSON'],
+        },
+      ],
+    },
+    {
+      position: 'Implementation Consultant',
+      period: '2014 - 2019',
+      company: 'Skłodowscy',
+      description: [
+        {
+          title: 'Projects',
+          content: [
+            'Implementing origincal MES application for production plant',
+            'Implementing custom WMS module for Asseco Softlab ERP',
+          ],
+        }
+      ],
+    },
+    {
+      position: 'Web App Developer',
+      period: '2008-2014',
+      company: 'Self employment',
+      description: [
+        {
+          content: ['Some minor free lance projects'],
+        },
+      ],
+    }
+  ],
+  languages: [
+    {
+      language: 'English',
+      level: 'B2',
+    },
+    {
+      language: 'Russian',
+      level: 'B1',
+    },
+    {
+      language: 'Ukrainian',
+      level: 'A2',
+    },
+  ],
   courses: [
     {
       title: 'Tuning and Optimizing SQL Databases',
+      tutor: 'Microsoft',
       date: '2019',
+      icon: 'fa-solid fa-database',
     },
     {
       title: 'Attacking & protecting web applications',
+      tutor: 'Niebezpiecznik.pl',
       date: '2018',
+      icon: 'fa-solid fa-shield',
     },
     {
       title: 'PRINCE 2 Foundation',
+      tutor: 'Axelos',
       date: '2019',
+      icon: 'fa-solid fa-list-check',
     },
     {
       title: 'Interpersonal Training',
+      tutor: 'PFS',
       date: '2009',
+      icon: 'fa-solid fa-comments',
     },
   ],
   projects: [
@@ -166,10 +199,6 @@ const resume: Resume = {
   },
 }
 
-export interface Turns {
-  turn1: boolean
-}
-
 const currentPage = ref<number>(0)
 
 const onPageTurn = (dir: number) => {
@@ -178,49 +207,53 @@ const onPageTurn = (dir: number) => {
 </script>
 
 <template>
-  <div class="wrapper p-8">
+  <div class="wrapper relative isolate p-5 md:p-8 max-w-full">
     <div class="cover cover-left"></div>
     <div class="cover cover-right turn"></div>
 
-    <div class="book">
-      <!-- Page 1 & 2 -->
+    <div class="book max-w-[calc(100vw-1rem)] relative w-full h-full block md:flex">
+      <!-- Page 0 -->
       <div class="book-page page-left">
-        <ProfilePage :resume v-model:currentPage="currentPage" />
+        <ProfilePage v-model:currentPage="currentPage" :page="0" :resume />
       </div>
+      
+      <!-- Page 1 & 2 -->
+      <SheetLayout :page="1" :currentPage>
+        <ExperiencePage :currentPage :page="1" :resume @turn="onPageTurn" />
+        <CoursesPage :currentPage :page="2" :resume @turn="onPageTurn" />
+      </SheetLayout>
 
-      <div class="book-page page-right" :class="{ turn: currentPage > 1 }">
-        <ExperiencePage :page="1" :resume @turn="onPageTurn" />
-        <CoursesPage :page="2" :resume @turn="onPageTurn" />
-      </div>
-
-      <div v-if="currentPage >= 2" class="book-page page-right" :class="{ turn: currentPage > 3 }">
+      <!-- Page 3 & 4 -->
+      <SheetLayout :page="3" :currentPage>
         <ProjectsPage :currentPage :page="3" :resume @turn="onPageTurn" />
         <SkillsPage :currentPage :page="4" :resume @turn="onPageTurn" />
-      </div>
+      </SheetLayout>
 
-      <div v-if="currentPage >= 4" class="book-page page-right" :class="{ turn: currentPage > 5 }">
+      <!-- Page 5 & 6 -->
+      <SheetLayout :page="5" :currentPage>
         <LatestProjectPage :currentPage :page="5" :resume @turn="onPageTurn" />
         <ContactMePage :currentPage :page="6" :resume @turn="onPageTurn" />
-      </div>
+      </SheetLayout>
 
-      <div v-if="currentPage >= 5" class="book-page page-right">
-        <div class="h-full page-front"></div>
-      </div>
-
+      <!-- Last page -->
+      <SheetLayout :page="7" :currentPage>
+        <div class="h-full page-front grid place-items-center">
+          <OutlineButton class="md:hidden" @click="currentPage = 0">Back to first page</OutlineButton>
+        </div>
+      </SheetLayout>
     </div>
   </div>
 </template>
 
 <style>
 .wrapper {
-  position: relative;
   width: 66rem;
   height: 45rem;
-  isolation: isolate;
 }
 
 .cover {
-  @apply absolute top-0 left-0 w-1/2 h-full;
+  @apply absolute top-0 left-0 h-full;
+  @apply w-full md:w-1/2;
   background: var(--cover-color);
   box-shadow: var(--box-shadow);
   border-top-left-radius: .6rem;
@@ -237,11 +270,11 @@ const onPageTurn = (dir: number) => {
 }
 
 .book {
-  @apply relative w-full h-full flex;
+  perspective: 250rem;
 
   & .book-page {
-    @apply absolute w-1/2 h-full flex flex-col;
-    @apply p-8;
+    @apply absolute h-full flex flex-col p-8;
+    @apply w-full md:w-1/2;
     background: var(--pages-color);
     box-shadow: 0 0 .6rem rgba(0, 0, 0, .1);
 
@@ -268,6 +301,34 @@ const onPageTurn = (dir: number) => {
         transform: rotateY(-180deg);
       }
     }
+  }
+}
+
+.not-shown {
+  z-index: 0;
+  animation: not-shown 500ms linear;
+}
+
+.shown {
+  z-index: 10;
+  animation: shown 500ms linear;
+}
+
+@keyframes not-shown {
+  0% {
+    z-index: 10;
+  }
+  100% {
+    z-index: 0;
+  }
+}
+
+@keyframes shown {
+  0% {
+    z-index: 0;
+  }
+  100% {
+    z-index: 10;
   }
 }
 </style>

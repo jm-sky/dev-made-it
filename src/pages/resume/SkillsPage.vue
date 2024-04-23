@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Resume } from '../ResumePage.vue';
-import PageTemplate from './PageTemplate.vue';
+import { Resume } from '@/types/resume.type';
+import PageLayout from '@/pages/resume/layouts/PageLayout.vue';
 
 defineProps<{
   resume: Resume
@@ -9,7 +9,7 @@ defineProps<{
 </script>
 
 <template>
-  <PageTemplate class="skills-page page-back">
+  <PageLayout class="skills-page">
     <h2 class="title mb-4 font-bold text-3xl text-center">Skills</h2>
     <div class="flex flex-col gap-5">
       <div v-for="(branch, index) in resume.skills" :key="index" class="flex flex-col gap-2">
@@ -20,7 +20,7 @@ defineProps<{
           <div
             v-for="(skill, index) in branch.skills"
             :key="index"
-            class="skill border-2 border-primary-500 p-2 rounded-lg text-center transition-all hover:shadow-md"
+            class="skill border-2 border-primary-500 p-2 rounded-lg text-center transition-all hover:shadow-md hover:bg-white/50"
           >
             <i class="fa-fw fa-2x text-primary-500 mb-1" :class="`${skill.icon}`" />
             <h5 class="whitespace-nowrap font-semibold leading-4 -mb-1">
@@ -31,7 +31,7 @@ defineProps<{
         </div>
       </div>
     </div>
-  </PageTemplate>
+  </PageLayout>
 </template>
 
 <style>

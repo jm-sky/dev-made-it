@@ -1,13 +1,15 @@
 <script setup lang="ts">
-import PageTemplate from './PageTemplate.vue';
+import { Resume } from '@/types/resume.type';
+import PageLayout from '@/pages/resume/layouts/PageLayout.vue';
+import TextLink from '@/components/buttons/TextLink.vue';
 
 defineProps<{
-  resume: any
+  resume: Resume
 }>()
 </script>
 
 <template>
-  <PageTemplate class="contact-me-page page-back">
+  <PageLayout class="contact-me-page">
     <h2 class="title mb-4 font-bold text-3xl text-center">Contact me</h2>
     <form class="flex flex-col gap-5">
       <input class="field" type="text" placeholder="Title" disabled>
@@ -19,7 +21,13 @@ defineProps<{
         Send
       </button>
     </form>
-  </PageTemplate>
+    <div class="mt-8 border border-primary-500 bg-white/50 text-sm px-4 py-4 rounded-md ">
+      <i class="fa-solid fa-envelope text-primary-500 mr-2"></i>
+      <TextLink href="mailto:jan.madeyski@gmail.com" class="hover:text-primary-500" flat>
+        jan.madeyski@gmail.com
+      </TextLink>
+    </div>
+  </PageLayout>
 </template>
 
 <style>
