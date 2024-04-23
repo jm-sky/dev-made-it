@@ -23,7 +23,7 @@ defineProps<{
             class="skill border-2 border-primary-500 p-2 rounded-lg text-center transition-all hover:shadow-md hover:bg-white/50"
           >
             <i class="fa-fw fa-2x text-primary-500 mb-1" :class="`${skill.icon}`" />
-            <h5 class="whitespace-nowrap font-semibold leading-4 -mb-1">
+            <h5 class="whitespace-nowrap font-semibold leading-4" :class="skill.level ? '-mb-1' : ''">
               {{ skill.name }}
             </h5>
             <progress v-if="skill.level" :value="skill.level * 20" :max="100" class="max-w-full h-2 -m-1"></progress>

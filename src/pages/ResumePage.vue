@@ -181,6 +181,14 @@ const resume: Resume = {
           icon: 'fa-brands fa-git-alt',
         },
         {
+          name: 'Docker',
+          icon: 'fa-brands fa-docker',
+        },
+        {
+          name: 'Linux',
+          icon: 'fa-brands fa-linux',
+        },
+        {
           name: 'Guitar',
           icon: 'fa-solid fa-guitar',
         },

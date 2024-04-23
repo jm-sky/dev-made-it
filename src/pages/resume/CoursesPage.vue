@@ -13,14 +13,14 @@ defineProps<{
       <h2 class="title mb-4 font-bold text-3xl text-center">Courses</h2>
       <div class="flex flex-col gap-5">
         <div v-for="(course, index) in resume.courses" :key="index" class="flex flex-row gap-3">
-          <div>
+          <div class="pt-0.5">
             <i class="text-primary-500" :class="course.icon"></i>
           </div>
           <div class="w-full">
-            <h3 class="font-bold text-lg mb-2 flex flex-row items-center">
+            <h3 class="font-bold text-lg mb-2">
               {{ course.title }}
             </h3>
-            <div class="flex flex-row gap-4  text-gray-500">
+            <div class="flex flex-row gap-4 text-gray-500">
               <span class="year text-xs uppercase">
                 <i class="fa-solid fa-calendar mr-1"></i> {{ course.date }}
               </span>
