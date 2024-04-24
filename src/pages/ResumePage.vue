@@ -124,7 +124,7 @@ const resume: Resume = {
   ],
   skills: {
     frontEnd: {
-      title: 'Font-end',
+      title: 'Front-end',
       skills: [
         {
           name: 'HTML',
@@ -165,6 +165,11 @@ const resume: Resume = {
           name: 'PHP',
           icon: 'fa-brands fa-php',
           level: 4,
+        },
+        {
+          name: 'Laravel',
+          icon: 'fa-brands fa-laravel',
+          level: 3,
         },
         {
           name: 'SQL',

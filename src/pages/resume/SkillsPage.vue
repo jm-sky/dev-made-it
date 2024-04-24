@@ -20,7 +20,7 @@ defineProps<{
           <div
             v-for="(skill, index) in branch.skills"
             :key="index"
-            class="skill border-2 border-primary-500 p-2 rounded-lg text-center transition-all hover:shadow-md hover:bg-white/50"
+            class="skill border-2 border-primary-500 p-2 rounded-lg text-center transition-all hover:shadow-md hover:bg-white/50 hover:scale-105"
           >
             <i class="fa-fw fa-2x text-primary-500 mb-1" :class="`${skill.icon}`" />
             <h5 class="whitespace-nowrap font-semibold leading-4" :class="skill.level ? '-mb-1' : ''">

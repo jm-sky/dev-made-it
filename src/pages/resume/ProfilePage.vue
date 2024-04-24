@@ -26,7 +26,7 @@ const currentPage = defineModel<number>('currentPage', { required: true })
     <p class="text-justify">{{ resume.description }}</p>
 
     <div class="buttons flex flex-row gap-4 mt-4">
-      <PrimaryButton href="/assets/Madeyski Jan - CV.pdf" anchor>
+      <PrimaryButton href="/assets/Madeyski Jan - CV.pdf" anchor download>
         Download CV
       </PrimaryButton>
       <OutlineButton @click="currentPage = 6">

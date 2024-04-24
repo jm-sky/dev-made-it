@@ -38,7 +38,7 @@ defineProps<{
         <div v-for="language in resume.languages" :key="language.language">
           <h4 class="flex flex-row justify-between items-center text-lg font-bold mb-1">
             {{ language.language }}
-            <span class="font-light text-sm text-gray-500">{{ language.level }}</span>
+            <span class="font-light font-mono text-sm text-gray-500">{{ language.level }}</span>
           </h4>
         </div>
       </div>

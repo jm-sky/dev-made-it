@@ -31,8 +31,12 @@ defineProps<{
           <i class="fa-solid fa-external-link scale-75" />
         </TextLink>
       </div>
-      <p>
-        Simple Bible reader progressive web application. You can zoom in/out & copy verses with book annotations.
+      <p class="text-justify">
+        Simple Bible reader progressive web application.
+        Aimed to help users with eyes disorder.
+      </p>
+      <p class="text-justify">
+        Features: search, high contrast mode, font-size changing, copy with source info.
       </p>
       <div class="mt-4 flex flex-row justify-center gap-4">
         <PrimaryButton

@@ -6,7 +6,7 @@ defineProps<{
 
 <template>
   <a
-    class="text-link relative text-sm font-semibold transition-colors"
+    class="text-link relative text-sm rounded font-semibold transition-colors outline-offset-4 outline-primary-500/50"
     :class="flat ? '' : 'text-primary-500 hover:text-primary-600'"
   >
     <slot />
