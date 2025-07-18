@@ -1,5 +1,5 @@
 import type { Config } from 'vike/types'
 
 export default {
-  title: 'Dev Made It'
+  title: 'DEV Made IT'
 } satisfies Config
