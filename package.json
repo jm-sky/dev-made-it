@@ -5,9 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "run-p type-check \"build-only {@}\" --",
+    "build": "run-p type-check \"build-only {@}\" -- && pnpm prerender",
     "preview": "vite preview",
     "build-only": "vite build",
+    "prerender": "vite-plugin-ssr prerender",
     "type-check": "vue-tsc --build",
     "lint": "eslint . --fix"
   },
@@ -22,6 +23,7 @@
     "tailwind-merge": "^3.3.0",
     "tailwindcss": "^4.1.7",
     "tw-animate-css": "^1.3.0",
+    "vite-plugin-ssr": "^0.4.142",
     "vue": "^3.5.13",
     "vue-i18n": "^11.1.4"
   },
