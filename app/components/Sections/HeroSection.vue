@@ -10,7 +10,7 @@ const { t } = useI18n()
 <template>
   <GradientMaskedContent>
     <DevMadeItLogo class="mb-2" />
-    <p class="px-4 md:px-0 text-xl leading-relaxed md:text-2xl text-gray-600 dark:text-gray-400 mb-8">
+    <p class="px-4 md:px-0 text-xl leading-relaxed md:text-2xl text-muted-foreground mb-8">
       {{ t('hero.description') }}
     </p>
     <div class="flex justify-center gap-4">

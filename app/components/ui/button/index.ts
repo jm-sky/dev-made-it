@@ -22,7 +22,7 @@ export const buttonVariants = cva(
         icon: 'size-9',
       },
       vibe: {
-        primary: 'relative overflow-hidden shadow-2xl duration-300 before:absolute before:h-0 before:w-0 before:rounded-full before:bg-white before:duration-200 before:ease-out hover:text-primary hover:shadow-primary-800/50 dark:hover:shadow-primary-300/50 hover:before:h-56 hover:before:w-56 hover:before:blur-md hover:scale-110 hover:ring',
+        primary: 'font-semibold relative overflow-hidden shadow-2xl duration-300 before:absolute before:h-0 before:w-0 before:rounded-full before:bg-white before:duration-200 before:ease-out hover:text-primary hover:shadow-primary-800/50 dark:hover:shadow-primary-300/50 hover:before:h-56 hover:before:w-56 hover:before:blur-md hover:scale-110 hover:ring',
         outline: 'duration-200 hover:outline-2 hover:bg-white outline-primary-500 outline-offset-4 hover:ring hover:ring-primary hover:scale-105 hover:text-primary hover:shadow-2xl hover:shadow-primary-800/50 dark:hover:shadow-primary-300/50',
         underline: 'rounded-b-none relative before:absolute before:bottom-0 before:rounded-md before:h-0.5 before:w-0 before:bg-primary before:transition-all before:duration-300 before:ease-in-out hover:before:w-full hover:text-primary hover:bg-transparent dark:hover:bg-transparent',
       }

@@ -5,7 +5,7 @@
         DEV
       </span> Made IT
     </div>
-    <div class="text-gray-500 dark:text-gray-400 opacity-80">
+    <div class="text-muted-foreground opacity-80">
       Madeyski Jan
     </div>
   </div>

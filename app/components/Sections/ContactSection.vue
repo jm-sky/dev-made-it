@@ -4,6 +4,7 @@ import { useI18n } from '#imports'
 import { config } from '@/config'
 import CardComponent from '../Cards/ContactCard.vue'
 import BaseSection from './BaseSection.vue'
+import HoverLink from '../ui/HoverLink.vue'
 
 const { t } = useI18n()
 </script>
@@ -34,55 +35,47 @@ const { t } = useI18n()
     </CardComponent>
 
     <CardComponent>
-      <a
+      <HoverLink
         href="https://maps.app.goo.gl/whXy58Df4TimY8dz7"
-        class="flex gap-4 items-center px-4 py-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-        rel="noopener noreferrer"
         target="_blank"
         aria-label="Address"
       >
         <MapPin class="size-6" />
         <span>{{ config.company.address }}</span>
-      </a>
-      <a
+      </HoverLink>
+      <HoverLink
         :href="`mailto:${config.company.email}`"
-        class="flex gap-4 items-center px-4 py-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
         aria-label="Email"
       >
         <Mail class="size-6" />
         <span>{{ config.company.email }}</span>
-      </a>
-      <a
+      </HoverLink>
+      <HoverLink
         :href="`tel:${config.company.phone.replaceAll(' ', '')}`"
-        class="flex gap-4 items-center px-4 py-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
         aria-label="Phone"
       >
         <Phone class="size-6" />
         <span>{{ config.company.phone }}</span>
-      </a>
+      </HoverLink>
     </CardComponent>
 
     <CardComponent>
-      <a
+      <HoverLink
         href="https://www.linkedin.com/in/jan-madeyski-964913166"
         target="_blank"
-        rel="noopener noreferrer"
-        class="flex gap-4 items-center px-4 py-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
         aria-label="LinkedIn"
       >
         <Linkedin class="size-6" />
         <span>Jan Madeyski</span>
-      </a>
-      <a
+      </HoverLink>
+      <HoverLink
         href="https://github.com/dev-made-it"
         target="_blank"
-        rel="noopener noreferrer"
-        class="flex gap-4 items-center px-4 py-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
         aria-label="GitHub"
       >
         <Github class="size-6" />
         <span>dev-made-it</span>
-      </a>
+      </HoverLink>
     </CardComponent>
   </BaseSection>
 </template>
