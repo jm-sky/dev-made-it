@@ -1,41 +1,47 @@
 # DEV Made IT
 
-Our home page.
+**Professional Web Development Services**
+
+We are DEV Made IT - a web development company specializing in building modern, responsive web applications. Our homepage showcases our expertise in creating beautiful, functional websites and applications using cutting-edge technologies.
 
 ![obraz](https://github.com/user-attachments/assets/1bd198cb-2263-4ae2-ad45-546ae5b05dec)
 
-## Recommended IDE Setup
+## About Our Services
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+We build custom web applications, corporate websites, and digital solutions tailored to your business needs. Our team focuses on modern development practices, responsive design, and optimal user experience.
 
-## Type Support for `.vue` Imports in TS
+## Tech Stack
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+- **Framework**: Nuxt 4 with Vue 3 and TypeScript
+- **Styling**: Tailwind CSS v4 with shadcn-vue components
+- **Internationalization**: @nuxtjs/i18n (English/Polish)
+- **Package Manager**: pnpm
+- **Build**: Static site generation ready
 
-## Customize configuration
+## Development Setup
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+### Requirements
+- Node.js (v22, latest LTS)
+- pnpm package manager
 
-## Project Setup
+### Installation
 
 ```sh
 pnpm install
 ```
 
-### Compile and Hot-Reload for Development
+### Development Commands
 
 ```sh
+# Start development server
 pnpm dev
-```
 
-### Type-Check, Compile and Minify for Production
-
-```sh
+# Build for production
 pnpm build
-```
 
-### Lint with [ESLint](https://eslint.org/)
+# Generate static site
+pnpm generate
 
-```sh
-pnpm lint
+# Preview production build
+pnpm preview
 ```
