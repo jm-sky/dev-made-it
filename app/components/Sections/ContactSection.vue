@@ -4,7 +4,7 @@ import { useI18n } from '#imports'
 import { config } from '@/config'
 import CardComponent from '../Cards/ContactCard.vue'
 import BaseSection from './BaseSection.vue'
-import HoverLink from '../ui/HoverLink.vue'
+import { HoverLink } from '../ui/hoverLink'
 
 const { t } = useI18n()
 </script>
