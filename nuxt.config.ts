@@ -34,6 +34,11 @@ export default defineNuxtConfig({
         code: 'pl',
         name: 'Polski',
         file: 'pl.ts',
+      },
+      {
+        code: 'ru',
+        name: 'Русский',
+        file: 'ru.ts',
       }
     ],
     detectBrowserLanguage: {
