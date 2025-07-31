@@ -11,7 +11,7 @@ export default defineNuxtConfig({
       }
     }
   },
-  modules: ['@nuxt/eslint', '@nuxt/ui', 'shadcn-nuxt', '@nuxtjs/i18n'],
+  modules: ['@nuxt/eslint', '@nuxt/ui', 'shadcn-nuxt', '@nuxtjs/i18n', '@vueuse/motion/nuxt'],
   css: ['~/assets/css/index.css'],
   vite: {
     plugins: [

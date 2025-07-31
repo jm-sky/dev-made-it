@@ -10,7 +10,14 @@ const { t } = useI18n()
 
 <template>
   <BaseSection id="about" :title="t('about.title')">
-    <AboutCard :title="t('about.whatWeDo.title')" class="leading-relaxed">
+    <AboutCard 
+      :title="t('about.whatWeDo.title')" 
+      class="leading-relaxed"
+      v-motion
+      :initial="{ opacity: 0, y: 50 }"
+      :visible="{ opacity: 1, y: 0 }"
+      :delay="100"
+    >
       <p class="text-muted-foreground">
         {{ t('about.whatWeDo.description') }}
       </p>
@@ -21,7 +28,14 @@ const { t } = useI18n()
         <ListItem>{{ t('about.whatWeDo.processOptimization') }}</ListItem>
       </List>
     </AboutCard>
-    <AboutCard :title="t('about.values.title')" class="leading-relaxed">
+    <AboutCard 
+      :title="t('about.values.title')" 
+      class="leading-relaxed"
+      v-motion
+      :initial="{ opacity: 0, y: 50 }"
+      :visible="{ opacity: 1, y: 0 }"
+      :delay="200"
+    >
       <p class="text-muted-foreground">
         {{ t('about.values.description') }}
       </p>
@@ -32,7 +46,14 @@ const { t } = useI18n()
         <ListItem>{{ t('about.values.processUnderstanding') }}</ListItem>
       </List>
     </AboutCard>
-    <AboutCard :title="t('about.technologies.title')" class="leading-relaxed">
+    <AboutCard 
+      :title="t('about.technologies.title')" 
+      class="leading-relaxed"
+      v-motion
+      :initial="{ opacity: 0, y: 50 }"
+      :visible="{ opacity: 1, y: 0 }"
+      :delay="300"
+    >
       <p class="text-muted-foreground">
         {{ t('about.technologies.description') }}
       </p>
