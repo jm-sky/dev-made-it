@@ -1,4 +1,4 @@
-import type { Variant } from '@vueuse/motion'
+import { useReducedMotion, type Variant } from '@vueuse/motion'
 
 /**
  * Simplified global animation configuration
