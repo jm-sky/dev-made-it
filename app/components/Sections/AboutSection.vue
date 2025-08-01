@@ -6,17 +6,17 @@ import ListItem from '../List/ListItem.vue'
 import BaseSection from './BaseSection.vue'
 
 const { t } = useI18n()
+const { slideUp, delayed } = useAnimationConfig()
 </script>
 
 <template>
   <BaseSection id="about" :title="t('about.title')">
-    <AboutCard 
-      :title="t('about.whatWeDo.title')" 
-      class="leading-relaxed"
+    <AboutCard
       v-motion
-      :initial="{ opacity: 0, y: 50 }"
-      :visible="{ opacity: 1, y: 0 }"
-      :delay="100"
+      :title="t('about.whatWeDo.title')"
+      class="leading-relaxed"
+      :initial="slideUp.initial"
+      :visible-once="delayed(slideUp.visibleOnce, 100)"
     >
       <p class="text-muted-foreground">
         {{ t('about.whatWeDo.description') }}
@@ -28,13 +28,12 @@ const { t } = useI18n()
         <ListItem>{{ t('about.whatWeDo.processOptimization') }}</ListItem>
       </List>
     </AboutCard>
-    <AboutCard 
-      :title="t('about.values.title')" 
-      class="leading-relaxed"
+    <AboutCard
       v-motion
-      :initial="{ opacity: 0, y: 50 }"
-      :visible="{ opacity: 1, y: 0 }"
-      :delay="200"
+      :title="t('about.values.title')"
+      class="leading-relaxed"
+      :initial="slideUp.initial"
+      :visible-once="delayed(slideUp.visibleOnce, 200)"
     >
       <p class="text-muted-foreground">
         {{ t('about.values.description') }}
@@ -46,13 +45,12 @@ const { t } = useI18n()
         <ListItem>{{ t('about.values.processUnderstanding') }}</ListItem>
       </List>
     </AboutCard>
-    <AboutCard 
-      :title="t('about.technologies.title')" 
-      class="leading-relaxed"
+    <AboutCard
       v-motion
-      :initial="{ opacity: 0, y: 50 }"
-      :visible="{ opacity: 1, y: 0 }"
-      :delay="300"
+      :title="t('about.technologies.title')"
+      class="leading-relaxed"
+      :initial="slideUp.initial"
+      :visible-once="delayed(slideUp.visibleOnce, 300)"
     >
       <p class="text-muted-foreground">
         {{ t('about.technologies.description') }}
