@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useI18n } from '#imports'
-import { Button } from '@/components/ui/button'
+import Button from '@/components/ui/button/Button.vue'
 
 const { t } = useI18n()
 </script>

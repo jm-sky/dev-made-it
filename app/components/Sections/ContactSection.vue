@@ -4,14 +4,19 @@ import { useI18n } from '#imports'
 import { config } from '@/config'
 import CardComponent from '../Cards/ContactCard.vue'
 import BaseSection from './BaseSection.vue'
-import HoverLink from '../ui/HoverLink.vue'
+import HoverLink from '@/components/ui/hoverLink/HoverLink.vue'
 
 const { t } = useI18n()
+const { slideUp, delayed } = useAnimationConfig()
 </script>
 
 <template>
   <BaseSection id="contact" :title="t('contact.title')">
-    <CardComponent>
+    <CardComponent
+      v-motion
+      :initial="slideUp.initial"
+      :visible-once="delayed(slideUp.visibleOnce, 100)"
+    >
       <div class="flex gap-4 items-center px-4 py-3 rounded-full">
         <Briefcase class="size-6" />
         <div class="font-semibold">
@@ -34,7 +39,11 @@ const { t } = useI18n()
       </div>
     </CardComponent>
 
-    <CardComponent>
+    <CardComponent
+      v-motion
+      :initial="slideUp.initial"
+      :visible-once="delayed(slideUp.visibleOnce, 200)"
+    >
       <HoverLink
         href="https://maps.app.goo.gl/whXy58Df4TimY8dz7"
         target="_blank"
@@ -59,7 +68,11 @@ const { t } = useI18n()
       </HoverLink>
     </CardComponent>
 
-    <CardComponent>
+    <CardComponent
+      v-motion
+      :initial="slideUp.initial"
+      :visible-once="delayed(slideUp.visibleOnce, 300)"
+    >
       <HoverLink
         href="https://www.linkedin.com/in/jan-madeyski-964913166"
         target="_blank"

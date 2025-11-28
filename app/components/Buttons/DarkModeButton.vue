@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useDark, useToggle } from '@vueuse/core'
 import { MoonIcon, SunIcon } from 'lucide-vue-next'
-import { Button } from '@/components/ui/button'
+import Button from '@/components/ui/button/Button.vue'
 
 const isDark = useDark()
 const toggleDark = useToggle(isDark)
