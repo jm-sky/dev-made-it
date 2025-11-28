@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useI18n } from '#imports'
-import { Button } from '@/components/ui/button'
+import Button from '@/components/ui/button/Button.vue'
 import GradientMaskedContent from '../GradientMaskedContent.vue'
 import CompanyLogo from '../Logo/CompanyLogo.vue'
 
