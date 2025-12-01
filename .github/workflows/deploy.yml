@@ -13,28 +13,22 @@ jobs:
   build:
     name: Build App
     runs-on: ubuntu-latest
-    outputs:
-      build-artifact: ${{ steps.upload.outputs.artifact-path }}
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install pnpm
-        uses: pnpm/action-setup@v3
+        uses: pnpm/action-setup@v4
         with:
-          version: 9
+          version: 10
           run_install: false
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 20
-
-      - uses: actions/cache@v4
-        with:
-          path: ~/.pnpm-store
-          key: pnpm-${{ hashFiles('pnpm-lock.yaml') }}
+          node-version: 22
+          cache: 'pnpm'
 
       - name: Install dependencies
         run: pnpm install
@@ -49,11 +43,11 @@ jobs:
         run: pnpm build
 
       - name: Upload dist as artifact
-        id: upload
         uses: actions/upload-artifact@v4
         with:
           name: dist
           path: dist
+          retention-days: 7
 
   deploy:
     name: Deploy App
