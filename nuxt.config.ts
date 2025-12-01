@@ -1,4 +1,12 @@
 import tailwindcss from '@tailwindcss/vite'
+import fs from 'fs'
+
+const pkg = JSON.parse(
+  fs.readFileSync(new URL('./package.json', import.meta.url), 'utf-8')
+)
+
+const APP_VERSION = pkg.version
+const APP_BUILD_DATE = new Date().toISOString()
 
 const DEFAULT_LOCALE = 'pl'
 
@@ -46,6 +54,10 @@ export default defineNuxtConfig({
     plugins: [
       tailwindcss(),
     ],
+    define: {
+      'import.meta.env.VITE_VERSION': JSON.stringify(APP_VERSION),
+      'import.meta.env.VITE_BUILD_DATE': JSON.stringify(APP_BUILD_DATE)
+    }
   },
   shadcn: {
     prefix: '',

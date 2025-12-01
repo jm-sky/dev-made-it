@@ -70,4 +70,3 @@ jobs:
           source: 'dist/*'
           target: ${{ secrets.SSH_TARGET }}
           strip_components: 1
-          debug: true

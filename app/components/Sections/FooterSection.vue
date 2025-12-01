@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { useI18n } from '#imports'
 import { config } from '@/config'
+import { useVersion } from '@/composables/useVersion'
 
 const { t } = useI18n()
+const { version, buildDate } = useVersion()
 </script>
 
 <template>
@@ -56,6 +58,11 @@ const { t } = useI18n()
       <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
         <p>
           © {{ new Date().getFullYear() }} {{ config.company.name }}. {{ t('footer.copyright') }}
+        </p>
+        <p>
+          {{ version }}
+          @
+          {{ buildDate }}
         </p>
       </div>
     </div>
