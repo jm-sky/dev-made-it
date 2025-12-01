@@ -59,8 +59,8 @@ const { version, buildDate } = useVersion()
         <p>
           © {{ new Date().getFullYear() }} {{ config.company.name }}. {{ t('footer.copyright') }}
         </p>
-        <p>
-          {{ version }}
+        <p class="text-sm opacity-50 mt-2">
+          v{{ version }}
           @
           {{ buildDate }}
         </p>
