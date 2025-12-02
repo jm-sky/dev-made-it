@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { useI18n } from '#imports'
-import Button from '@/components/ui/button/Button.vue'
 import GradientMaskedContent from '../GradientMaskedContent.vue'
 import CompanyLogo from '../Logo/CompanyLogo.vue'
 
@@ -33,25 +32,23 @@ const { scale, scaleDown, slideUp, delayed } = useAnimationConfig()
       :visible-once="delayed(scale.visibleOnce, 300)"
       class="flex justify-center gap-4"
     >
-      <Button
-        as="a"
-        href="#about"
+      <RouterLink
+        to="/#about"
         size="lg"
         variant="primary"
         vibe="primary"
       >
         <span class="relative z-10">{{ t('hero.learnMore') }}</span>
-      </Button>
+      </RouterLink>
 
-      <Button
-        as="a"
-        href="#contact"
+      <RouterLink
+        to="/#contact"
         size="lg"
         variant="outline"
         vibe="outline"
       >
         {{ t('hero.contact') }}
-      </Button>
+      </RouterLink>
     </div>
   </GradientMaskedContent>
 </template>

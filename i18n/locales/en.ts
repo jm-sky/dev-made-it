@@ -50,5 +50,11 @@ export default {
     quickLinks: 'Quick Links',
     contact: 'Contact',
     copyright: 'All rights reserved.'
+  },
+  error404: {
+    title: 'Page Not Found',
+    description: 'The page you are looking for does not exist.',
+    message: 'Oops! It looks like the page you are looking for does not exist or has been moved.',
+    backHome: 'Back to Home'
   }
 }

@@ -30,7 +30,7 @@ const maskImageGradient = computed(() => {
 
 <template>
   <section
-    class="w-full h-screen bg-gradient-to-b from-gray-50 to-white dark:from-black dark:to-gray-900 from-80% flex flex-col items-center justify-center relative overflow-hidden"
+    class="w-full h-screen bg-linear-to-b from-gray-50 to-white dark:from-black dark:to-gray-900 from-80% flex flex-col items-center justify-center relative overflow-hidden"
   >
     <div
       class="absolute bg-primary-300/30 dark:bg-primary-700/30 rounded-full -translate-x-1/2 -translate-y-1/2 pointer-events-none blur-3xl"
@@ -47,6 +47,6 @@ const maskImageGradient = computed(() => {
       <slot />
     </div>
 
-    <div class="absolute bottom-0 left-0 w-full h-1/8 bg-gradient-to-b from-transparent to-white dark:from-transparent dark:to-gray-900" />
+    <div class="absolute bottom-0 left-0 w-full h-1/8 bg-linear-to-b from-transparent to-white dark:from-transparent dark:to-gray-900" />
   </section>
 </template>

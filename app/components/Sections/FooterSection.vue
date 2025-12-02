@@ -25,13 +25,13 @@ const { version, buildDate } = useVersion()
           </h4>
           <ul class="space-y-2">
             <li>
-              <a href="#" class="text-gray-400 hover:text-white">{{ t('nav.home') }}</a>
+              <NuxtLink to="/#" class="text-gray-400 hover:text-white">{{ t('nav.home') }}</NuxtLink>
             </li>
             <li>
-              <a href="#about" class="text-gray-400 hover:text-white">{{ t('nav.about') }}</a>
+              <NuxtLink to="/#about" class="text-gray-400 hover:text-white">{{ t('nav.about') }}</NuxtLink>
             </li>
             <li>
-              <a href="#contact" class="text-gray-400 hover:text-white">{{ t('nav.contact') }}</a>
+              <NuxtLink to="/#contact" class="text-gray-400 hover:text-white">{{ t('nav.contact') }}</NuxtLink>
             </li>
           </ul>
         </div>

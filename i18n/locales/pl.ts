@@ -50,5 +50,11 @@ export default {
     quickLinks: 'Szybkie linki',
     contact: 'Kontakt',
     copyright: 'Wszelkie prawa zastrzeżone.'
+  },
+  error404: {
+    title: 'Strona nie znaleziona',
+    description: 'Strona, której szukasz, nie istnieje.',
+    message: 'Ups! Wygląda na to, że strona, której szukasz, nie istnieje lub została przeniesiona.',
+    backHome: 'Wróć do strony głównej'
   }
 }
