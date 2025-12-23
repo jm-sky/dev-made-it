@@ -2,6 +2,7 @@ export default {
   nav: {
     home: 'Главная',
     about: 'О нас',
+    projects: 'Проекты',
     contact: 'Контакты'
   },
   // Component-specific translations
@@ -31,6 +32,21 @@ export default {
         frontend: 'Фронтенд',
         databases: 'Базы данных',
         ops: 'DevOps'
+      }
+    }
+  },
+  projects: {
+    title: 'Проекты',
+    ourProjects: {
+      title: 'Наши проекты',
+      savaGroup: {
+        description: 'Профессиональные электрические услуги с многолетним опытом и гарантией качества.'
+      },
+      gearStack: {
+        description: 'Приложение для управления снаряжением выживания и тревожными сумками.'
+      },
+      wiarbud: {
+        description: 'Профессиональные строительные и ремонтные услуги с многолетним опытом и гарантией качества.'
       }
     }
   },

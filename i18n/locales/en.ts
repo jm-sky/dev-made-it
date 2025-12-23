@@ -2,6 +2,7 @@ export default {
   nav: {
     home: 'Home',
     about: 'About',
+    projects: 'Projects',
     contact: 'Contact'
   },
   // Component-specific translations
@@ -31,6 +32,21 @@ export default {
         frontend: 'Frontend',
         databases: 'Databases',
         ops: 'Ops'
+      }
+    }
+  },
+  projects: {
+    title: 'Projects',
+    ourProjects: {
+      title: 'Our Projects',
+      savaGroup: {
+        description: 'Professional electrical services with years of experience and quality guarantee.'
+      },
+      gearStack: {
+        description: 'Application for managing survival gear and bug-out bag equipment.'
+      },
+      wiarbud: {
+        description: 'Professional construction and renovation services with years of experience and quality guarantee.'
       }
     }
   },

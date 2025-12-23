@@ -2,6 +2,7 @@
 import NavbarSection from '@/components/Layout/Navbar.vue'
 import HeroSection from '@/components/Sections/HeroSection.vue'
 import AboutSection from '@/components/Sections/AboutSection.vue'
+import ProjectsSection from '@/components/Sections/ProjectsSection.vue'
 import ContactSection from '@/components/Sections/ContactSection.vue'
 import FooterSection from '@/components/Sections/FooterSection.vue'
 import ScrollToTop from '@/components/Sections/ScrollToTop.vue'
@@ -25,6 +26,7 @@ useSeoMeta({
     <NavbarSection />
     <HeroSection />
     <AboutSection />
+    <ProjectsSection />
     <ContactSection />
     <FooterSection />
     <ScrollToTop />
