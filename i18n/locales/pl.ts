@@ -2,6 +2,7 @@ export default {
   nav: {
     home: 'Strona główna',
     about: 'O nas',
+    projects: 'Projekty',
     contact: 'Kontakt'
   },
   // Component-specific translations
@@ -31,6 +32,21 @@ export default {
         frontend: 'Frontend',
         databases: 'Bazy danych',
         ops: 'Operacje'
+      }
+    }
+  },
+  projects: {
+    title: 'Projekty',
+    ourProjects: {
+      title: 'Nasze projekty',
+      savaGroup: {
+        description: 'Profesjonalne usługi elektryczne z wieloletnim doświadczeniem i gwarancją jakości.'
+      },
+      gearStack: {
+        description: 'Aplikacja do zarządzania ekwipunkiem survival i bug-out bag.'
+      },
+      wiarbud: {
+        description: 'Profesjonalne usługi budowlane i remontowe z wieloletnim doświadczeniem i gwarancją jakości.'
       }
     }
   },

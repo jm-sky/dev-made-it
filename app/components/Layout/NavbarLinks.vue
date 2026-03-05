@@ -22,6 +22,13 @@ const { t } = useI18n()
       {{ t('nav.about') }}
     </ButtonLink>
     <ButtonLink
+      to="/#projects"
+      variant="ghost"
+      vibe="underline"
+    >
+      {{ t('nav.projects') }}
+    </ButtonLink>
+    <ButtonLink
       to="/#contact"
       variant="ghost"
       vibe="underline"
