@@ -22,3 +22,7 @@ logs
 .env
 .env.*
 !.env.example
+
+# Local AI agent context (machine-specific)
+CLAUDE.local.md
+AGENTS.local.md
