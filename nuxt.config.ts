@@ -87,7 +87,7 @@ export default defineNuxtConfig({
       cookieKey: 'i18n_redirected',
       redirectOn: 'root'
     },
-    vueI18n: './i18n/index.ts',
+    vueI18n: 'i18n.config.ts',
     pages: {
       '404': {
         en: false,
